@@ -13,7 +13,7 @@
     </head>
     <body>
       <h1>Let's play a game of Tic-Tac-Toe!</h1>
-      <h2>Do you like playing games? How about Tic-Tac-Toe? Sign up today!</h2>
+      <h2 id="home-message">Do you like playing games? How about Tic-Tac-Toe? Sign up today!</h2>
 
       <p id="message"></p>
 
@@ -36,6 +36,12 @@
         </fieldset>
       </form>
 
+      <form id="new-game">
+        <fieldset>
+          <input type="submit" value="New Game">
+        </fieldset>
+      </form>
+
       <form id="change-password">
         <fieldset>
           <legend>Change Password</legend>
@@ -47,10 +53,28 @@
 
       <form id="sign-out">
         <fieldset>
-          <legend>Sign Out</legend>
           <input type="submit" value="Sign Out!">
         </fieldset>
       </form>
+      <br><br>
+
+      <div id='gameboard' class='gameboard'>
+        <div class='row'>
+          <div class='col-4 box'>0</div>
+          <div class='col-4 box'>1</div>
+          <div class='col-4 box'>2</div>
+        </div>
+        <div class='row'>
+          <div class='col-4 box'>3</div>
+          <div class='col-4 box'>4</div>
+          <div class='col-4 box'>5</div>
+        </div>
+        <div class='row'>
+          <div class='col-4 box'>6</div>
+          <div class='col-4 box'>7</div>
+          <div class='col-4 box'>8</div>
+        </div>
+      </div>
 
 
     </body>

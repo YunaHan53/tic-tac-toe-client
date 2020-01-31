@@ -22,10 +22,12 @@ const onSignInSuccess = function (response) {
   $('#message').text(response.user.email + ' successfully signed in')
   $('#sign-in').trigger('reset')
   store.user = response.user
+  $('#new-game').show()
   $('#change-password').show()
   $('#sign-out').show()
   $('#sign-in').hide()
   $('#sign-up').hide()
+  $('#home-message').hide()
 }
 
 const onSignInFailure = function (response) {
@@ -48,6 +50,8 @@ const onSignOutSuccess = function (response) {
   $('#message').text('Sign Out Succeeded!')
   $('#change-password').hide()
   $('#sign-out').hide()
+  $('#gameboard').hide()
+  $('#new-game').hide()
   $('#sign-in').show()
   $('#sign-up').show()
   store.user = null
