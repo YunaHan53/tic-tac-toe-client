@@ -33,9 +33,37 @@ const onSignInFailure = function (response) {
   $('#sign-in').trigger('reset')
 }
 
+// Change Password
+const onChangePasswordSuccess = function (response) {
+  $('#message').text('Changed Password Succeeded!')
+  $('#change-password').trigger('reset')
+}
+
+const onChangePasswordFailure = function (response) {
+  $('#message').text('You can not change your password muahahaha!')
+}
+
+// Sign Out
+const onSignOutSuccess = function (response) {
+  $('#message').text('Sign Out Succeeded!')
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#sign-in').show()
+  $('#sign-up').show()
+  store.user = null
+}
+
+const onSignOutFailure = function (response) {
+  $('#message').text('Sign Out Failed 😭')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
-  onSignInFailure
+  onSignInFailure,
+  onChangePasswordSuccess,
+  onChangePasswordFailure,
+  onSignOutSuccess,
+  onSignOutFailure
 }
