@@ -12,8 +12,10 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Let's play a game of Tic-Tac-Toe!</h1>
-      <h2 id="home-message">Do you like playing games? How about Tic-Tac-Toe? Sign up today!</h2>
+      <div data-cell-index='0'></div>
+
+      <h1>Tic-Tac-Toe</h1>
+      <h3 id="home-message">Do you like playing games? How about Tic-Tac-Toe? Sign up today!</h3>
 
       <p id="message"></p>
 
@@ -36,36 +38,42 @@
         </fieldset>
       </form>
 
-      <form id="change-password">
-        <fieldset>
-          <legend>Change Password</legend>
-          <input name="passwords[old]" type="password" placeholder="Old Password">
-          <input name="passwords[new]" type="password" placeholder="New Password">
-          <input type="submit" value="Change Password!">
-        </fieldset>
-      </form>
-
-      <form id="sign-out">
-        <fieldset>
-          <input type="submit" value="Sign Out!">
-        </fieldset>
-      </form>
       <br><br>
 
       <div class="container">
-        <div id='gameboard' class='gameboard'>
-          <div id="block-0" class="box"></div>
-          <div id="block-1" class="box"></div>
-          <div id="block-2" class="box"></div>
-          <div id="block-3" class="box"></div>
-          <div id="block-4" class="box"></div>
-          <div id="block-5" class="box"></div>
-          <div id="block-6" class="box"></div>
-          <div id="block-7" class="box"></div>
-          <div id="block-8" class="box"></div>
-        </div>
 
         <button id="new-game">New Game</button>
+        <br><br>
+
+        <div id='gameboard' class='gameboard'>
+          <div id="0" class="box"></div>
+          <div id="1" class="box"></div>
+          <div id="2" class="box"></div>
+          <div id="3" class="box"></div>
+          <div id="4" class="box"></div>
+          <div id="5" class="box"></div>
+          <div id="6" class="box"></div>
+          <div id="7" class="box"></div>
+          <div id="8" class="box"></div>
+        </div>
+
+        <br><br>
+
+        <form id="change-password">
+          <fieldset>
+            <legend>Change Password</legend>
+            <input name="passwords[old]" type="password" placeholder="Old Password">
+            <input name="passwords[new]" type="password" placeholder="New Password">
+            <input type="submit" value="Change Password!">
+          </fieldset>
+        </form>
+        <br><br>
+
+        <form id="sign-out">
+          <fieldset>
+            <input type="submit" value="Sign Out!">
+          </fieldset>
+        </form>
 
       </div>
 

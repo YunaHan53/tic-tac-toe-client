@@ -23,7 +23,6 @@ const onSignInSuccess = function (response) {
   $('#sign-in').trigger('reset')
   store.user = response.user
   $('#new-game').show()
-  $('#change-password').show()
   $('#sign-out').show()
   $('#sign-in').hide()
   $('#sign-up').hide()
