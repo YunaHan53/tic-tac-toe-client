@@ -27,6 +27,7 @@ const onSignInSuccess = function (response) {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#home-message').hide()
+  $('#change-password').show()
 }
 
 const onSignInFailure = function (response) {

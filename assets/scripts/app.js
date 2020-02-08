@@ -17,10 +17,10 @@ $(() => {
 
   $('#new-game').on('click', gameEvents.onNewGame)
   $('#new-game').hide()
-  $('#gameboard').on('click', gameEvents.onPlayGame)
+  // $('#gameboard').on('click', gameEvents.onPlayGame)
   $('#gameboard').hide()
 
-  $('#gameboard').on('click', gameEvents.currentPlayer)
+  // $('#gameboard').on('click', gameEvents.currentPlayer)
   // $('#gameboard').on('click', gameEvents.placeAnX)
   // $('#gameboard').on('click', gameEvents.placeAnO)
 })

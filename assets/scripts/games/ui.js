@@ -5,7 +5,8 @@ const onNewGameSuccess = function (response) {
   // The left dot creates a new variable called gameData and stores it into store.js
   store.gameData = response.game
   $('#gameboard').show()
-  $('#change-password').show()
+  $('.box').text('')
+  store.board = ['', '', '', '', '', '', '', '', '']
 }
 
 const onNewGameFailure = function (response) {
@@ -13,12 +14,13 @@ const onNewGameFailure = function (response) {
 }
 
 const onUpdateGameSuccess = function (response) {
-  console.log(response)
-  store.cells = response.game.cells
+  // console.log(response)
+  store.gameData = response.game
 }
 
 const onUpdateGameFailure = function (response) {
-  console.log(response)
+  $('#message').text('Update Game Failed 😭')
+  // console.log(response)
 }
 
 module.exports = {

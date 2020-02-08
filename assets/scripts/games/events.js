@@ -2,9 +2,12 @@
 // const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./../store')
 
 // Create New Game
 const onNewGame = function () {
+  currentPlayer = 'X'
+  winner = false
   api.newGame()
     .then(ui.onNewGameSuccess)
     .catch(ui.onNewGameFailure)
@@ -30,110 +33,85 @@ const onNewGame = function () {
 // const onUpdateGame = event => {
 //   const boxIndex = event.target
 //   const player = ['', '', '', '', '', '', '', '', '']
-
+//
 // api.updateGame()
 //   .then(ui.onUpdateGameSuccess)
 //   .catch(ui.onUpdateGameFailure)
 // }
 
-// Start Game
-const onPlayGame = function (event) {
-  api.newGame()
-    .then(ui.onNewGameSuccess)
-    .catch(ui.onNewGameFailure)
-}
-
-// Play Game
-
-// need to reset the counter when you reset the gameboard.
-let counter = 0
+// Need to reset the counter when you reset the gameboard.
 let currentPlayer = 'X'
+let winner = false
+const board = ['', '', '', '', '', '', '', '', '']
+
 $(() => {
-  $('.box').one('click', function (event) {
-    $(event.target).text(currentPlayer)
-
-    counter++
-    // Array of winning rows
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
-    ]
-    // Create an empty array and pushing the id value of the clicked box into the array
-    const clickedBox = []
-    clickedBox.push(Number(event.target.id))
-
-    // Checking the Row to see if X won or if O won
-    function checkRow (a, b, c) {
-      if (a === 'X' && b === 'X' && c === 'X') {
-        return 1
-      } else if (a === 'O' && b === 'O' && c === 'O') {
-        return -1
-      } else {
-        return 0
-      }
-    }
-
-    const checkWin = function () {
-      if (checkRow > 0) {
-        console.log('X wins!')
-        return true
-      } else if (checkRow < 0) {
-        console.log('O Wins!')
-        return false
-      } else if (counter === 9) {
-        console.log('It is a tie!')
-        return false
-      }
-    }
-
-    // Looping through the lines array
-    for (let i = 0; i < lines.length; i++) {
-      const a = lines[i][0]
-      const b = lines[i][1]
-      const c = lines[i][2]
-
-      checkRow(a, b, c)
-
-      // Assigning 3 variables to find the numbers in the clickbox to the lines array.
-      const one = clickedBox.find(x => (a === x))
-      const two = clickedBox.find(x => (b === x))
-      const three = clickedBox.find(x => (c === x))
-
-      console.log(one, two, three)
-
-      if (clickedBox.length > 2) {
-        checkRow()
-      }
-    }
-    const eventNum = Number(event.target.id)
-
-    const data = {
-      'game': {
-        'cell': {
-          'index': `${eventNum}`,
-          'value': `${currentPlayer}`
-        },
-        'over': checkWin()
-      }
-    }
+  $('.box').on('click', function (event) {
     currentPlayer = currentPlayer === 'O' ? currentPlayer = 'X' : currentPlayer = 'O'
 
-    console.log(data)
-    api.updateGame(data)
-      .then(ui.onUpdateGameSuccess)
-      .catch(ui.onUpdateGameFailure)
+    // if game is not over then play
+    if (winner === false && $(event.target).text() === '') {
+      $(event.target).text(currentPlayer)
+      // const board = store.gameData.cells
+      const index = event.target.id
+      // console.log(index)
+      board[index] = currentPlayer
+      console.log(board)
+      // check for top row winner
+      if (board[0] === board[1] && board[0] === board[2] && board[0] !== '') {
+        winner = true
+      // check for middle row win
+      } else if (board[3] === board[4] && board[3] === board[5] && board[3] !== '') {
+        winner = true
+      // check for bottom row win
+      } else if (board[6] === board[7] && board[6] === board[8] && board[6] !== '') {
+        winner = true
+      // check for left column win
+      } else if (board[0] === board[3] && board[0] === board[6] && board[0] !== '') {
+        winner = true
+      // check for middle column win
+      } else if (board[1] === board[4] && board[1] === board[7] && board[1] !== '') {
+        winner = true
+      // check for right column win
+      } else if (board[2] === board[5] && board[2] === board[8] && board[2] !== '') {
+        winner = true
+      // check for left diagnal win
+      } else if (board[0] === board[4] && board[0] === board[8] && board[0] !== '') {
+        winner = true
+      // check for right diagnal win
+      } else if (board[2] === board[4] && board[2] === board[6] && board[2] !== '') {
+        winner = true
+      } else {
+        winner = false
+      }
+      store.board = board
+      console.log(store)
+      // console.log(board + 'after the checkWin')
+      if (winner === true) {
+        $('#message').text(currentPlayer + ' is the winner!!!')
+      } else if (winner === false) {
+        $('#message').text('Sorry, it is a tie.')
+      }
+      // const data = {
+      //   'game': {
+      //     'cell': {
+      //       'index': `${eventNum}`,
+      //       'value': `${currentPlayer}`
+      //     },
+      //     'over': winner
+      //   }
+      // }
+
+      // console.log(data)
+      // api.updateGame(data)
+        // .then(ui.onUpdateGameSuccess)
+        // .catch(ui.onUpdateGameFailure)
+    } else {
+      $('#message').text('Invalid move')
+    }
   })
 })
 
 module.exports = {
   onNewGame,
-  // onUpdateGame,
-  onPlayGame,
   currentPlayer
 }

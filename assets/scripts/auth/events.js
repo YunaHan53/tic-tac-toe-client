@@ -9,7 +9,7 @@ const onSignUp = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  // console.log(data)
 
   api.signUp(data)
     .then(ui.onSignUpSuccess)
@@ -22,7 +22,7 @@ const onSignIn = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  // console.log(data)
 
   api.signIn(data)
     .then(ui.onSignInSuccess)
