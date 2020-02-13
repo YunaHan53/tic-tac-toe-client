@@ -3,10 +3,12 @@
 const store = require('./../store')
 const onNewGameSuccess = function (response) {
   // The left dot creates a new variable called gameData and stores it into store.js
+  $('#message').text('Success! Click on any square on the board to start playing!🤪')
   store.gameData = response.game
   $('#gameboard').show()
   $('.box').text('')
   store.board = ['', '', '', '', '', '', '', '', '']
+  // console.log('On new game success', store.board)
 }
 
 const onNewGameFailure = function (response) {
@@ -14,8 +16,8 @@ const onNewGameFailure = function (response) {
 }
 
 const onUpdateGameSuccess = function (response) {
-  // console.log(response)
   store.gameData = response.game
+  // console.log(response)
 }
 
 const onUpdateGameFailure = function (response) {

@@ -24,6 +24,12 @@ const updateGame = function (moveData) {
   })
 }
 
+// const getGame = function () {
+//   return $.ajax({
+//
+//   })
+// }
+
 module.exports = {
   newGame,
   updateGame

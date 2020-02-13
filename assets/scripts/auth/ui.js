@@ -43,6 +43,7 @@ const onChangePasswordSuccess = function (response) {
 
 const onChangePasswordFailure = function (response) {
   $('#message').text('You can not change your password muahahaha!')
+  $('#change-password').trigger('reset')
 }
 
 // Sign Out
