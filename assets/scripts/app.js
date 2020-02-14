@@ -17,7 +17,11 @@ $(() => {
 
   $('#new-game').on('click', gameEvents.onNewGame)
   $('#new-game').hide()
+
+  $('#new-game').on('click', gameEvents.onShowGame)
   // $('#gameboard').on('click', gameEvents.onPlayGame)
   $('#gameboard').hide()
-  $('get-games').hide()
+  $('#show-game').hide()
+  $('#game-count').hide()
+
 })

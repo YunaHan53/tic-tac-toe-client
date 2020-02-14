@@ -24,6 +24,16 @@ const updateGame = function (moveData) {
   })
 }
 
+const showGame = function () {
+  return $.ajax({
+    url: config.apiUrl + `/games/`,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: ''
+  })
+}
 // const getGame = function () {
 //   return $.ajax({
 //
@@ -32,5 +42,6 @@ const updateGame = function (moveData) {
 
 module.exports = {
   newGame,
-  updateGame
+  updateGame,
+  showGame
 }

@@ -55,6 +55,7 @@ const onSignOutSuccess = function (response) {
   $('#new-game').hide()
   $('#sign-in').show()
   $('#sign-up').show()
+  $('#game-count').text('0')
   store.user = null
 }
 

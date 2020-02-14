@@ -13,6 +13,14 @@ const onNewGame = function () {
     .catch(ui.onNewGameFailure)
 }
 
+// Show Game
+const onShowGame = function () {
+
+  api.showGame()
+    .then(ui.onShowGameSuccess)
+    .catch(ui.onShowGameFailure)
+}
+
 // The Event parameter is the response from the event handler.
 // It says that the gameboard is clicked.
 // And it has information on exactly where the click was.
@@ -20,24 +28,6 @@ const onNewGame = function () {
 // The information we want from event.target is the player and the cell clicked.
 // Then we will use this information to create some json data for AJAX call.
 // this is how we want the data to look once we're sending it to api.updateGame():
-// {
-//   "game": {
-//     "cell": {
-//       "index": 0,
-//       "value": "x"
-//     },
-//     "over": false
-//   }
-// }
-// Update Game
-// const onUpdateGame = event => {
-//   const boxIndex = event.target
-//   const player = ['', '', '', '', '', '', '', '', '']
-//
-// api.updateGame()
-//   .then(ui.onUpdateGameSuccess)
-//   .catch(ui.onUpdateGameFailure)
-// }
 
 // Need to reset the counter when you reset the gameboard.
 let currentPlayer = 'X'
@@ -119,5 +109,6 @@ $(() => {
 
 module.exports = {
   onNewGame,
+  onShowGame,
   currentPlayer
 }
