@@ -4,21 +4,23 @@ const store = require('./../store')
 
 // Sign Up
 const onSignUpSuccess = function (response) {
-  $('#message').text(response.user.email + ' successfully signed up!')
-  $('#sign-up').trigger('reset')
   $('#message').removeClass()
   $('#message').addClass('success-message')
+  $('#message').text(response.user.email + ' successfully signed up!')
+  $('#sign-up').trigger('reset')
 }
 
 const onSignUpFailure = function (response) {
-  $('#message').text('Failed to sign up')
-  $('#sign-up').trigger('reset')
   $('#message').removeClass()
   $('#message').addClass('failure-message')
+  $('#message').text('Failed to sign up')
+  $('#sign-up').trigger('reset')
 }
 
 // Sign In
 const onSignInSuccess = function (response) {
+  $('#message').removeClass()
+  $('#message').addClass('success-message')
   $('#message').text(response.user.email + ' successfully signed in')
   $('#sign-in').trigger('reset')
   store.user = response.user
@@ -27,27 +29,35 @@ const onSignInSuccess = function (response) {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#home-message').hide()
-  $('#change-password').show()
+  $('#password-button').show()
 }
 
 const onSignInFailure = function (response) {
+  $('#message').removeClass()
+  $('#message').addClass('failure-message')
   $('#message').text('Signed in failed. 😭')
   $('#sign-in').trigger('reset')
 }
 
 // Change Password
 const onChangePasswordSuccess = function (response) {
+  $('#message').removeClass()
+  $('#message').addClass('success-message')
   $('#message').text('Changed Password Succeeded!')
   $('#change-password').trigger('reset')
 }
 
 const onChangePasswordFailure = function (response) {
+  $('#message').removeClass()
+  $('#message').addClass('failure-message')
   $('#message').text('You can not change your password muahahaha!')
   $('#change-password').trigger('reset')
 }
 
 // Sign Out
 const onSignOutSuccess = function (response) {
+  $('#message').removeClass()
+  $('#message').addClass('success-message')
   $('#message').text('Sign Out Succeeded!')
   $('#change-password').hide()
   $('#sign-out').hide()
@@ -56,10 +66,14 @@ const onSignOutSuccess = function (response) {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#game-count').text('0')
+  $('#show-game').hide()
+  $('#password-button').hide()
   store.user = null
 }
 
 const onSignOutFailure = function (response) {
+  $('#message').removeClass()
+  $('#message').addClass('failure-message')
   $('#message').text('Sign Out Failed 😭')
 }
 

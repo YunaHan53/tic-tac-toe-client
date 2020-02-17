@@ -38,12 +38,32 @@
         </fieldset>
       </form>
 
+      <!-- Buttons -->
+      <div id="buttons">
+        <button id="new-game" class="button1">New Game</button>
+        &nbsp;&nbsp;&nbsp;
+        <button id="password-button" class="button3">Change Password</button>
+        &nbsp;&nbsp;&nbsp;
+        <form id="sign-out" class="button2">
+          <fieldset>
+            <input type="submit" value="Sign Out!">
+          </fieldset>
+        </form>
+      </div>
+
       <br><br>
 
-      <div class="container">
+      <!-- Change Password Form -->
+      <form id="change-password" class="passwordpage">
+        <legend>Change Password Here!</legend>
+        <input name="passwords[old]" type="password" placeholder="Old Password">
+        <input name="passwords[new]" type="password" placeholder="New Password">
+        <input type="submit" value="Change Password!">
+      </form>
 
-        <button id="new-game">New Game</button>
-        <br><br>
+    <div id="main" class="clear">
+      <!-- Main content -->
+      <div id="container">
 
         <div id='gameboard' class='gameboard'>
           <div id="0" class="box"></div>
@@ -57,27 +77,17 @@
           <div id="8" class="box"></div>
         </div>
 
-        <br><br>
-
-        <form id="sign-out" class="signout">
-          <fieldset>
-            <input type="submit" value="Sign Out!">
-          </fieldset>
-        </form>
-
       </div>
 
-      <div id="show-game" class="gamepage">
-        <p>Number of Games Played</p>
-        <div id="game-count">0</div>
+      <!-- Side box -->
+      <div id="side">
+        <div id="show-game" class="floatbox">
+          <p>Number of Games Played</p>
+          <div id="game-count">0</div>
+        </div>
       </div>
 
-      <form id="change-password" class="gamepage">
-        <!-- <legend>Change Password</legend> -->
-        <input name="passwords[old]" type="password" placeholder="Old Password">
-        <input name="passwords[new]" type="password" placeholder="New Password">
-        <input type="submit" value="Change Password!">
-      </form>
+    </div>
 
     </body>
 </html>

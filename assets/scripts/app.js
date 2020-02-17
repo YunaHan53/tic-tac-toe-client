@@ -23,5 +23,5 @@ $(() => {
   $('#gameboard').hide()
   $('#show-game').hide()
   $('#game-count').hide()
-
+  $('#password-button').hide()
 })

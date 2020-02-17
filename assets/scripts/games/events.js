@@ -21,6 +21,14 @@ const onShowGame = function () {
     .catch(ui.onShowGameFailure)
 }
 
+$('#password-button').click(function () {
+  $('#message').removeClass()
+  $('#message').text('Change your password in the form below!')
+  $('#change-password').show()
+  $('#gameboard').hide()
+  $('#show-game').hide()
+})
+
 // The Event parameter is the response from the event handler.
 // It says that the gameboard is clicked.
 // And it has information on exactly where the click was.
@@ -92,9 +100,13 @@ $(() => {
 
       // console.log(board + 'after the checkWin')
       if (winner === true) {
+        $('#message').removeClass()
+        $('#message').addClass('success-message')
         $('#message').text(currentPlayer + ' is the winner!!!')
       } else if ((winner === false) && ((store.board).every(boardFull) === true)) {
-        $('#message').text("It's a tie.")
+        $('#message').removeClass()
+        $('#message').addClass('failure-message')
+        $('#message').text("It's a tie. Please start a new game.")
       } else {
         currentPlayer = currentPlayer === 'O' ? currentPlayer = 'X' : currentPlayer = 'O'
         $('#message').text('It is ' + currentPlayer + "'s turn.")
@@ -102,7 +114,9 @@ $(() => {
 
       // console.log(store)
     } else {
-      $('#message').text('Invalid move')
+      $('#message').removeClass()
+      $('#message').addClass('failure-message')
+      $('#message').text('Invalid move! Please start a new game!')
     }
   })
 })

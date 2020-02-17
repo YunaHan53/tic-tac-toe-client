@@ -3,8 +3,10 @@
 const store = require('./../store')
 const onNewGameSuccess = function (response) {
   // The left dot creates a new variable called gameData and stores it into store.js
-  $('#message').text('Success! Click on any square on the board to start playing!🤪')
+  $('#message').removeClass()
+  $('#message').text('Success! X will go first. Click on any square on the board to start playing!🤪')
   store.gameData = response.game
+  $('#change-password').hide()
   $('#show-game').show()
   $('#gameboard').show()
   $('#game-count').show()
@@ -14,6 +16,8 @@ const onNewGameSuccess = function (response) {
 }
 
 const onNewGameFailure = function (response) {
+  $('#message').removeClass()
+  $('#message').addClass('failure-message')
   $('#message').text('Create New Game Failed 😭')
 }
 
@@ -23,6 +27,8 @@ const onUpdateGameSuccess = function (response) {
 }
 
 const onUpdateGameFailure = function (response) {
+  $('#message').removeClass()
+  $('#message').addClass('failure-message')
   $('#message').text('Update Game Failed 😭')
   // console.log(response)
 }
@@ -33,6 +39,8 @@ const onShowGameSuccess = function (response) {
 }
 
 const onShowGameFailure = function (response) {
+  $('#message').removeClass()
+  $('#message').addClass('failure-message')
   $('#message').text('Show Game Failed 😭')
   // console.log(response)
 }
