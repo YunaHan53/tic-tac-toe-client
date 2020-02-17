@@ -24,6 +24,7 @@ const onShowGame = function () {
 $('#password-button').click(function () {
   $('#message').removeClass()
   $('#message').text('Change your password in the form below!')
+  $('#change-password').trigger('reset')
   $('#change-password').show()
   $('#gameboard').hide()
   $('#show-game').hide()

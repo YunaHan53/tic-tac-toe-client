@@ -6,6 +6,7 @@ const onNewGameSuccess = function (response) {
   $('#message').removeClass()
   $('#message').text('Success! X will go first. Click on any square on the board to start playing!🤪')
   store.gameData = response.game
+  $('#change-password').trigger('reset')
   $('#change-password').hide()
   $('#show-game').show()
   $('#gameboard').show()
