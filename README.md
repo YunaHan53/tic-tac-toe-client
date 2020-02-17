@@ -28,6 +28,7 @@ As an advanced user, I want to also animate the box when it is clicked on the ga
 - HTML/CSS
 - Bootstrap
 - Javascript
+- AJAX
 
 ### Unsolved Problems
 
@@ -43,22 +44,11 @@ As an advanced user, I want to also animate the box when it is clicked on the ga
 ## Images
 
 ---
+![](assets/images/Homepage.png)
+![](assets/images/PasswordPage.png)
+![](assets/images/GamePage.png)
+![](assets/images/SignOutPage.png)
+
 
 #### Wireframe:
-          Tic-Tac-Toe
-     _____    _____     _____
-    |_____|  |_____|   |_____|
-      New    ChangePW  SignOut
-
-          |           |
-          |           |
-          |           |
-__________|___________|___________         ________
-          |           |                   | # of   |
-          |           |                   | Games  |
-          |           |                   | Played |
-__________|___________|___________        |________|
-          |           |
-          |           |
-          |           |
-          |           |
+![](assets/images/Wireframe.png)
