@@ -15,7 +15,6 @@ const onNewGame = function () {
 
 // Show Game
 const onShowGame = function () {
-
   api.showGame()
     .then(ui.onShowGameSuccess)
     .catch(ui.onShowGameFailure)
