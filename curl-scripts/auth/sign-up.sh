@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "https://tic-tac-toe-wdi.herokuapp.com/sign-up" \
+curl "https://tic-tac-toe-api-development.herokuapp.com/sign-up" \
   --include \
   --request POST \
   --header "Content-type: application/json" \
